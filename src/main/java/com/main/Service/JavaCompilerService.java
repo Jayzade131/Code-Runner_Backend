@@ -1,4 +1,4 @@
-package com.main.Service;
+package com.main.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,9 +17,9 @@ import java.util.UUID;
 
 @Service
 @Slf4j
-public class CodeCompilerService {
+public class JavaCompilerService implements CompilerService {
 
-    public String executeJavaCode(String code) throws IOException {
+    public String executeAndRun(String code) throws IOException {
         try {
             log.info("this is service ");
             String regex = "(class\\s+\\w+\\s*\\{)";
