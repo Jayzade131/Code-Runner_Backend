@@ -7,6 +7,8 @@ public enum Langauge {
     JAVA,
     PYTHON,
     JAVASCRIPT,
-    TYPESCRIPT;
+    PHP,
+    GO,
+    RUBY;
 
 }
