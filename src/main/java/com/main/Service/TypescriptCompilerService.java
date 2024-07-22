@@ -1,5 +1,6 @@
 package com.main.service;
 
+import com.main.factory.CompilerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,8 @@ import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.UUID;
 
-@Service
-@Slf4j
-public class TypescriptCompilerService implements CompilerService{
+@Service("typescriptCompilerService")
+public class TypescriptCompilerService implements CompilerService {
 
 
     public String executeAndRun(String code) throws  IOException {
@@ -72,14 +72,14 @@ public class TypescriptCompilerService implements CompilerService{
             return output.toString();
         } catch (Exception e) {
             return "Exception occurred: " + e.getMessage();
-        } /*finally {
+        } finally {
             if (Objects.nonNull(tsFilePath)) {
                 Files.deleteIfExists(tsFilePath);
             }
             if (Objects.nonNull(jsFilePath)) {
                 Files.deleteIfExists(jsFilePath);
             }
-        }*/
+        }
     }
 
 

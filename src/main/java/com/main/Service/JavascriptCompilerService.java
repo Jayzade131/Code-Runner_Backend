@@ -1,5 +1,6 @@
 package com.main.service;
 
+import com.main.factory.CompilerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,7 @@ import java.nio.file.Paths;
 import java.util.Objects;
 import java.util.UUID;
 
-@Service
-@Slf4j
+@Service("javascriptCompilerService")
 public class JavascriptCompilerService implements CompilerService {
     @Override
     public String executeAndRun(String code) throws IOException {
@@ -21,7 +21,7 @@ public class JavascriptCompilerService implements CompilerService {
         Path jsFilePath = null;
         String fileName = null;
         try {
-            log.info("this is service ");
+
             fileName = "TempScript" + UUID.randomUUID().toString().replace("-", "");
 
             // Write code to a temporary file

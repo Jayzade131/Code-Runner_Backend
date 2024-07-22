@@ -1,7 +1,7 @@
 package com.main.controller;
 
 import com.main.dto.ResponseDto;
-import com.main.service.CompilerContext;
+import com.main.factory.CompilerContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -21,7 +21,6 @@ public class CompilerController {
     public ResponseEntity<ResponseDto> compileAndRun(@PathVariable("lang") String lang, @RequestBody String code) {
         try {
             System.out.println(code);
-            log.info("request received...!");
             String output = compilerContext.compileAndRun(lang,code);
             return ResponseEntity.ok(ResponseDto.OK(output));
         } catch (Exception e) {

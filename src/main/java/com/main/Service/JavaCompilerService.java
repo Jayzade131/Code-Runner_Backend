@@ -1,5 +1,6 @@
 package com.main.service;
 
+import com.main.factory.CompilerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -15,13 +16,12 @@ import java.nio.file.Paths;
 import java.util.UUID;
 
 
-@Service
-@Slf4j
+@Service("javaCompilerService")
 public class JavaCompilerService implements CompilerService {
 
     public String executeAndRun(String code) throws IOException {
         try {
-            log.info("this is service ");
+
             String regex = "(class\\s+\\w+\\s*\\{)";
             String fileName = "TempClasss" + UUID.randomUUID().toString().replace("-", "");
 
